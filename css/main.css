@@ -1,0 +1,245 @@
+/* 4/16/2025 目前为止6小时，设计 + 写完 desktop version */
+
+.Wrapper {
+    margin: 0;
+}
+body {
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    padding: 0;
+  }  
+
+  header {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  
+  .hero {
+    margin-top: 0;
+    padding-top: 0;
+  }
+  
+
+
+  /* Navigation */
+  
+
+  header {
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+  }
+
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+/* Let header stretch fully */
+header {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2em; /* Add some padding */
+    
+  }
+  
+  header  img {
+    height: 100px; /* Control size of the logo */
+    width: auto;
+  }
+  /* Contain rest of the content */
+  .main {
+    margin: 0 2em;
+    margin-top: 10rem;
+    margin-bottom: 10rem; 
+  }
+
+ h1{
+    font-size: 60px;
+    margin: 0;
+  }
+
+ 
+  p {
+    font-size: 20px;
+    font-weight: 300;
+  }
+
+  h3{
+    font-size: 20px;
+    font-weight: 700;
+  }
+  
+  /* Optional: make sure body has no default margin */
+  body {
+    margin: 0;
+  }
+
+
+
+
+
+
+   /*hero*/
+
+   .hero {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+  
+.hero-text {
+    position: absolute;
+    top: 7%; /* adjust for vertical placement */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    margin: 0;
+    padding:0;
+  }
+
+.hero-image {
+    width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+    
+  
+
+  
+
+   /*main content*/
+
+   
+   .main {
+    display: flex;
+    flex-direction: column;     /* Stack the sections vertically */
+    align-items: center;        /* Optional: center stacks horizontally */
+    gap: 4rem;                  /* Space between each stack */
+    padding: 2rem;
+  }
+  
+  .stack,
+  .stack-reverse {
+    display: flex;
+    flex-direction: row;        /* Row by default */
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1000px;
+    width: 100%;
+  }
+  
+ 
+ 
+/* Shared column styles */
+.column-left,
+.column-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Right-align text inside column */
+.stack .column-left,
+.stack .column-left * {
+  text-align: right;
+  align-items: flex-end;
+}
+
+/* Same for third stack */
+.stack:last-of-type .column-left,
+.stack:last-of-type .column-left * {
+  text-align: right;
+  align-items: flex-end;
+}
+
+/* Image styling */
+.column-right img,
+.column-left img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.stack h3,
+.stack-reverse h3 {
+  margin-bottom: 0.5rem; /* Reduce space below heading */
+}
+
+.stack p,
+.stack-reverse p {
+  margin-top: 0; /* Remove extra space on top of paragraph */
+}
+
+
+
+
+.last-image {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  vertical-align: bottom; /* important */
+}
+
+
+
+
+  /*footer*/
+
+  .footer {
+    width: 100%;
+  background-color: black;
+  position: relative;
+  margin-top: 0;
+  margin: 0%;
+  font-size: 0; /* Removes whitespace from inline layout */
+  line-height: 0;
+  
+ 
+  }
+  
+
+  .black-strip {
+    background-color: black;
+    text-align: center;
+    padding: 20px 0 20px; /* top padding allows for overlap */
+    position: relative;
+    margin-top: 0%;
+  }
+
+
+
+  .footer-text p { 
+    font-size: 14px;
+    color: white;
+  }
+  
+ 
+
+
+
+
+
+   /*mobile version*/
+
+
+ 
+  
+ 
