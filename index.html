@@ -5,83 +5,168 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XG Girl Group</title>
     <link rel="stylesheet" href="css/main.css">
+    <style>
+        /* Scroll and Fade Animation */
+        @keyframes fadeSlideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px); /* Start from below */
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0); /* End at original position */
+            }
+        }
 
+        /* Class to be added when an element is visible on screen */
+        .scroll-animate {
+            opacity: 0; /* Initially hidden */
+            transform: translateY(20px); /* Positioned below */
+            transition: all 0.8s ease-out; /* Apply smooth transition */
+        }
+
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0); /* Animate to original position */
+        }
+    </style>
 </head>
 <body>
-    <div class="wrapper">
-        <header>
-            <a href="https://xgalx.com/en/xg/"><img src="image/logo.jpg" alt="xg logo"></a>
-            <nav>
-                <ul>
-                    <li><a href="https://xgalx.com/en/xg/news/">NEWS</a></li>
-                    <li><a href="https://xgalx.com/en/xg/profile/">PROFILE</a></li>
-                    <li><a href="https://xgalx.com/en/xg/schedule/">SCHEDULE</a></li>
-                </ul>
-            </nav>
-        </header>
+    <!-- ✅ Mobile Nav Header + Menu -->
+  <header class="mobile-header scroll-animate">
+    <div class="logo">
+      <img src="image/logo.jpg" alt="logo">
+    </div>
+    
+    <div class="hamburger" id="hamburger"><img src="image/mobile-menu.svg" alt="hamburger"></div>
+  </header>
 
-        <!----divider between header and page-content--> 
+  <div class="overlay" id="overlay"></div>
+
+  <nav class="mobile-menu scroll-animate" id="mobileMenu">
+    <div class="close-button" id="closeButton">
+        <img src="image/close-icon.svg" alt="close">
+    </div>
+    <ul>
+      <li><a href="https://xgalx.com/en/xg/news/">NEWS</a></li>
+      <li><a href="https://xgalx.com/en/xg/profile/">PROFILE</a></li>
+      <li><a href="https://xgalx.com/en/xg/schedule/">SCHEDULE</a></li>
+    </ul>
+  </nav>
+
+  <div class="wrapper">
+    <header class="scroll-animate">
+      <a href="https://xgalx.com/en/xg/"><img src="image/logo.jpg" alt="xg logo"></a>
+      <nav>
+        <ul>
+          <li><a href="https://xgalx.com/en/xg/news/">NEWS</a></li>
+          <li><a href="https://xgalx.com/en/xg/profile/">PROFILE</a></li>
+          <li><a href="https://xgalx.com/en/xg/schedule/">SCHEDULE</a></li>
+        </ul>
+      </nav>
+    </header>
 
     <div class="page-content">
-        <div class="hero">
-            <img src="image/img1.png" alt="XG in the rain" class="hero-image">
-            <div class="hero-text">
-                <h1>XG - IN THE RAIN <br>now live!</h1>
-                <P>Don’t miss out on album releases & event schedules! <br> Check more fun things  for ALPHAZ below!</P>
+      <div class="hero scroll-animate">
+        <img src="image/img1.png" alt="XG in the rain" class="hero-image">
+        <div class="hero-text">
+          <h1>XG - IN THE RAIN <br>now live!</h1>
+          <P>Don’t miss out on album releases & event schedules! <br> Check more fun things  for ALPHAZ below!</P>
+        </div>
+      </div>
+
+      <div class="main">
+        <div class="stack scroll-animate">
+          <div class="column-left">
+            <h3>What is Love?</h3>
+            <div class="right-align">
+              <p>Heartbeat felt in weightless <br>space with a cheerful rhythm<br> and dreamy pad synth sound.</p>
             </div>
+          </div>
+          <div class="column-right">
+            <img src="image/img2.png" alt="what is love">
+          </div>
         </div>
 
-         <!----divider between hero and main content--> 
-         <div class="main">
-            <div class="stack"> 
-                <div class="column-left">
-                    <h3>What is Love?</h3>
-                    <div class="right-align">
-                    <p>Heartbeat felt in weightless <br>space with a cheerful rhythm<br> and dreamy pad synth sound.</p>
-                    </div>
-                </div>
-                <div class="column-right">
-                    <img src="image/img2.png" alt="what is love">
-                </div>
-            </div>
-            
-            <div class="stack-reverse">
-                <div class="column-left">
-                    <img src="image/img3.png" alt="left,right">
-                </div>
-                <div class="column-right">
-                    <h3>Left, Right</h3>
-                    <p>Push forward with unwavering <br>confidence without being influenced by <br> what others think.</p>
-                </div>
-            </div>
-
-            <div class="stack">
-                <div class="column-left">
-                    <h3>Shooting Star</h3>
-                    <div class="right-align">
-                    <p>Trust yourself and be what you <br> want to be.</p>
-                     </div>
-                </div>
-                <div class="column-right">
-                    <img src="image/img4.png" alt="shooting star">
-                </div>
-            </div>
-        </div>
-            
-
-
-        <!----divider between main content and footer--> 
-        
-     <img src="image/img5.png" alt="xg" class="last-image">
-        <div class="footer">
-            <div class="black-strip">
-                <div class="footer-text">
-                  <p>2025 designed and coded by Kawen ♡.</p>
-                </div>
-            </div>
+        <div class="stack-reverse scroll-animate">
+          <div class="column-left">
+            <h3>Left, Right</h3>
+            <p>Push forward with unwavering <br>confidence without being influenced by <br> what others think.</p>
+          </div>
+          <div class="column-right">
+            <img src="image/img3.png" alt="left,right">
+          </div>
         </div>
 
-          
+        <div class="stack scroll-animate">
+          <div class="column-left">
+            <h3>Shooting Star</h3>
+            <div class="right-align">
+              <p>Trust yourself and be what you <br> want to be.</p>
+            </div>
+          </div>
+          <div class="column-right">
+            <img src="image/img4.png" alt="shooting star">
+          </div>
+        </div>
+      </div>
+
+      <img src="image/img5.png" alt="xg" class="last-image scroll-animate">
+
+      <div class="footer scroll-animate">
+        <div class="black-strip">
+          <div class="footer-text">
+            <p>2025 designed and coded by Kawen ♡.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Intersection Observer for Scroll Animations
+    const elements = document.querySelectorAll('.scroll-animate');
+
+    // Intersection Observer to trigger the animations when the element comes into view
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible'); // Add 'visible' class when in view
+                observer.unobserve(entry.target); // Stop observing once it's visible
+            }
+        });
+    }, { threshold: 0.15 }); // Adjusted to trigger when 15% of the element is in the viewport
+
+    elements.forEach(element => {
+        observer.observe(element); // Start observing each element
+    });
+  </script>
+ 
     
+
+        <script>
+        const mobileMenuButton = document.getElementById("hamburger");
+        const mobileMenu = document.getElementById("mobileMenu");
+        const overlay = document.getElementById("overlay");
+        const closeButton = document.getElementById("closeButton");
+
+        mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.add("open");
+        overlay.style.display = "block"; /* Show overlay */
+        });
+
+        overlay.addEventListener("click", () => {
+        mobileMenu.classList.remove("open");
+        overlay.style.display = "none"; /* Hide overlay */
+            });
+
+        closeButton.addEventListener("click", () => {
+        mobileMenu.classList.remove("open");
+        overlay.style.display = "none"; /* Hide overlay */
+        });
+
+          </script>
+          
+           
 </body>
 </html>
