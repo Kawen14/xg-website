@@ -599,7 +599,12 @@ p {
 
 body {
   animation: fadeIn 1s ease-out;
+   
 }
+
+body {
+  overflow-x: hidden; /* Hide any horizontal overflow */
+} 
 
 /* Fade and Slide Up Animation */
 @keyframes fadeSlideUp {
