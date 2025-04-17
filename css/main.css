@@ -1,4 +1,6 @@
-/* 4/16/2025 目前为止6小时，设计 + 写完 desktop version */
+/* 4/16/2025 目前为止6小时，设计 + 写完 desktop version
+   4/17/2025 4个小时写完mobile，responsive，animation 
+   总共10小时，两天*/
 
 .Wrapper {
     margin: 0;
@@ -7,12 +9,10 @@ body {
     font-family: 'Raleway', sans-serif;
     margin: 0;
     padding: 0;
+    overflow-x: hidden; /* Hide any horizontal overflow */
   }  
 
-  header {
-    margin-bottom: 0;
-    padding-bottom: 0;
-  }
+
   
   .hero {
     margin-top: 0;
@@ -29,6 +29,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
 
   nav ul li {
@@ -42,7 +45,29 @@ body {
         text-decoration: none;
         font-size: 18px;
         font-weight: bold;
+        position: relative;
     }
+
+    @keyframes shimmer {
+      0% { background-position: -200%; }
+      100% { background-position: 200%; }
+    }
+   
+    nav ul li a:hover {
+      background: linear-gradient(90deg, #E9A0AB, #C4DEFD, #243949);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: shimmer 1.2s infinite linear;
+      background-size: 300%;
+    }
+ 
+    
+    
+
+
+
+
 
 /* Let header stretch fully */
 header {
@@ -59,6 +84,9 @@ header {
     height: 100px; /* Control size of the logo */
     width: auto;
   }
+
+
+
   /* Contain rest of the content */
   .main {
     margin: 0 2em;
@@ -133,10 +161,21 @@ header {
     padding: 2rem;
   }
   
-  .stack,
+  .stack {
+    display: flex;
+    flex-direction: row; /* Text – Image */
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1000px;
+    width: 100%;
+  }
+
+
+
   .stack-reverse {
     display: flex;
-    flex-direction: row;        /* Row by default */
+    flex-direction: row-reverse; /* Image – Text */
     justify-content: center;
     align-items: center;
     gap: 2rem;
@@ -190,6 +229,9 @@ header {
 
 
 
+
+
+
 .last-image {
   display: block;
   width: 100%;
@@ -237,9 +279,343 @@ header {
 
 
 
-   /*mobile version*/
+   /* mobile version */
 
+   /* header styling */
+   .mobile-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    padding: 0 20px;
+  }
 
- 
+  .logo img {
+    height: 80px;
+    width: auto;
+  }
+
+  .hamburger img {
+    height: 28px;
+    width: auto;
+  }
+
+  .hamburger {
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+    height: 28px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
   
+  .hamburger img {
+    height: 28px;
+    width: auto;
+  }
+  
+  /* Overlay */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+    z-index: 900;
+  }
+  
+  .overlay.show {
+    display: block;
+  }
+  
+
+
+  /* Slide-in menu */
+
+.mobile-header{
+  margin-bottom: 50%;
+}
+
+  .mobile-menu {
+    position: absolute;
+    top: 0;
+    right: -100%;
+    width: 250px;
+    height: 100%;
+    background-color: black;
+    color: white;
+    z-index: 1000;
+    transition: right 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding-right: 20px;
+    padding-top: 20px; 
+    
+  }
+  
+  .mobile-menu.open {
+    right: 0;
+  }
+  
+
+  .mobile-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+    display: flex;
+    flex-direction: column; /* Stack vertically */
+    align-items: flex-end; /* Align to the right */
+    padding-top: 100px;
+  }
+  
+  .mobile-menu li {
+    margin: 30px 0; /* Add spacing between items */
+   
+  }
+  .mobile-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: right;
+  }
+
+  /* Close Button */
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  margin-top: 15px;
  
+}
+
+.close-button img {
+  width: 30px;
+  height: 30px;
+}
+  
+
+
+
+
+ 
+/* responsive design */ 
+
+
+/* Default: show desktop nav, hide mobile nav */
+.mobile-header,
+.mobile-menu,
+#hamburger {
+  display: none;
+}
+
+
+
+/* Alternate direction on desktop for even rows */
+.stack:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+
+
+
+
+
+
+
+/* Mobile Styles (for screens ≤ 768px) */
+
+@media (max-width: 768px) {
+
+  
+  .mobile-header,
+  .mobile-menu,
+  #hamburger {
+    display: block;
+  }
+
+  .wrapper header {
+    display: none; /* Hide desktop nav */
+  }
+
+  .mobile-header {
+    position: relative; /* or remove position entirely */
+    margin-bottom: 50px; /* this will now push down the hero */
+  }
+
+
+
+
+/* divider between mobil header and hero */
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .hero-image {
+  margin-top: 200px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+ 
+
+
+
+/* Stack main elements vertically */
+
+
+
+.column-left,
+.column-right {
+  width: 100%;
+  text-align: center;
+}
+
+.column-left h3,
+.column-left p,
+.column-right h3,
+.column-right p {
+  text-align: center;
+  margin: 10px auto;
+}
+
+.right-align {
+  text-align: center;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+.main{
+  margin: 0;
+  padding: 0;
+}
+
+.stack .column-left,
+.stack:last-of-type .column-left { /* have the text be center-aligned, overriding desktop*/
+  text-align: center !important;
+  align-items: center !important;
+}
+
+.stack .column-left *,
+.stack:last-of-type .column-left * {
+  text-align: center !important;
+  align-items: center !important;
+}
+
+
+.stack {
+  flex-direction: column !important;
+}
+
+.column-left,
+.column-right {
+  width: 100%;
+  text-align: center !important;
+  align-items: center !important;
+}
+
+
+
+  .stack, .stack-reverse {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 16px 0;
+    gap: 1rem; /* Add space between text and image */
+    padding: 0 1rem; /* Top/bottom + side padding */
+  }
+
+.main {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+p {
+  font-size: 18px; /* Adjust to the desired font size for mobile */
+}
+
+
+.stack h3 {
+  margin-bottom: 1px !important;  /* Decrease bottom margin for h3 */
+}
+
+.stack p {
+  margin-top: 5px !important;     /* Decrease top margin for p */
+}
+
+.stack-reverse h3 {
+  margin-bottom: 5px !important;  /* Decrease bottom margin for h3 */
+}
+
+.stack-reverse p {
+  margin-top: 5px !important;     /* Decrease top margin for p */
+}
+
+
+}
+
+
+
+
+
+
+/* Animation */
+/* Page fade-in animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+body {
+  animation: fadeIn 1s ease-out;
+}
+
+/* Fade and Slide Up Animation */
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Start from below */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* End at original position */
+  }
+}
+
+/* Class to be added when an element is visible on screen */
+.scroll-animate {
+  opacity: 0; /* Initially hidden */
+  transform: translateY(20px); /* Positioned below */
+  animation: fadeSlideUp 0.8s ease-out forwards; /* Apply the animation */
+}
